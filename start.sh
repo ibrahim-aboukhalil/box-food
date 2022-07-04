@@ -11,4 +11,5 @@ docker run --rm \
     -v "$(pwd)":/opt \
     -w /opt \
     laravelsail/php81-composer:latest \
-    composer update 
+    composer update && ./vendor/bin/sail up -d
+./vendor/bin/sail artisan migrate --seed

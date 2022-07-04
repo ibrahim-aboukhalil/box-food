@@ -28,12 +28,3 @@
     ```
     ./start.sh
     ```
-* Configure a Bash alias that allows you to execute Sail's commands
-    ```
-    alias sail='[ -f sail ] && bash sail || bash vendor/bin/sail'
-    ```
-* Run
-    ```
-    sail up
-    sail artisan migrate --seed
-    ```
