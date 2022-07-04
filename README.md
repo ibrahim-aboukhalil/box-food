@@ -32,3 +32,5 @@
     ```
     ./start.sh
     ```
+## Postman Collection
+Please find the postman collection here [Postman Collection](https://github.com/ibrahim-aboukhalil/box-food/blob/master/box_food.postman_collection.json).
