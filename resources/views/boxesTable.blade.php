@@ -20,35 +20,22 @@
         <table id="ingredientsTable" class="table table-striped">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Amount</th>
                     <th scope="col">Ingredients</th>
-                    <th scope="col">Delivery Date</th>
                 </tr>
             </thead>
             <tbody>
                 
                 @foreach($boxes as $box)
                 <tr>
-                    <td>{{ $box->id }}</td>
                     <td>
-                    @foreach($box->boxrecipes  as $boxrecipe)
-                        @foreach($boxrecipe->recipes  as $recipe)
-                            @foreach($recipe->RecipeIngredients  as $recipeIngredient)
-                                {{ $recipeIngredient->amount }} -
-                                @foreach($recipeIngredient->ingredients  as $ingredient)
-                                    {{ $ingredient->name }};
-                                @endforeach
-                            @endforeach
-                        @endforeach
-                    @endforeach
+                    {{ $box->total_amount }} {{ $box->measure }}
                     </td>
-                    <td>{{ $box->delivery_date }}</td>
+                    <td>{{ $box->name }}</td>
                 </tr>
                 @endforeach
             </tbody>
-        </table>
-        {{ $boxes->links() }}
-        
+        </table>       
     </div>
 </body>
 </html>

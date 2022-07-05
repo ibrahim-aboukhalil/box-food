@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Carbon;
 use App\Models\Box;
 use App\Models\BoxRecipe;
 use App\Models\Recipe;
+
 
 class BoxController extends Controller
 {
@@ -101,7 +103,14 @@ class BoxController extends Controller
                 return redirect('/')->with('boxes',$result);
             }
             $endDate = Carbon::today()->addDays(7);
-            $all = Box::whereBetween('delivery_date', [$order_date, $endDate])->paginate(10);
+            $all = DB::table('boxes')
+            ->select(DB::raw('sum(recipe_ingredients.amount) as total_amount'),'ingredients.measure','ingredients.name','ingredients.id')
+            ->join('box_recipes', 'box_recipes.box_id', 'boxes.id')
+            ->join('recipe_ingredients', 'box_recipes.recipe_id', 'recipe_ingredients.recipe_id')
+            ->join('ingredients', 'ingredients.id', 'recipe_ingredients.ingredient_id')
+            ->whereBetween('delivery_date', [$order_date, $endDate])
+            ->groupBy('ingredients.id')
+            ->get();
             return view('boxesTable',[
                 'boxes' => $all
             ]);
@@ -124,7 +133,14 @@ class BoxController extends Controller
                 return $result;
             }
             $endDate = Carbon::today()->addDays(7);
-            $all = Box::whereBetween('delivery_date', [$order_date, $endDate])->paginate(10);
+            $all = DB::table('boxes')
+            ->select(DB::raw('sum(recipe_ingredients.amount) as total_amount'),'ingredients.measure','ingredients.name','ingredients.id')
+            ->join('box_recipes', 'box_recipes.box_id', 'boxes.id')
+            ->join('recipe_ingredients', 'box_recipes.recipe_id', 'recipe_ingredients.recipe_id')
+            ->join('ingredients', 'ingredients.id', 'recipe_ingredients.ingredient_id')
+            ->whereBetween('boxes.delivery_date', [$order_date, $endDate])
+            ->groupBy('ingredients.id')
+            ->get();
             return $all;
         }
     }
