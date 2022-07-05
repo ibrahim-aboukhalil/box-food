@@ -9,7 +9,7 @@ class Box extends Model
 {
     use HasFactory;
     protected $guarded = ['id']; // allow all value except this
-    protected $fillable = ['delivery_date']; // allow value
+    protected $fillable = ['user_id','delivery_date']; // allow value
     protected $with = ['boxrecipes'];
 
     /**

@@ -34,7 +34,7 @@ class BoxController extends Controller
                 $recipes = Recipe::find($request->recipes)->count();
                 if($recipes>0){
                     /*insert record to boxes table */
-                    $data_box = Box::create(['delivery_date'=>$delivery_date]);
+                    $data_box = Box::create(['user_id'=>1,'delivery_date'=>$delivery_date]);
                     if($data_box){
                         foreach($request->recipes as $recipe){
                             /*insert record to box_recipes table */
@@ -71,7 +71,7 @@ class BoxController extends Controller
                 $recipes = Recipe::find($request->recipes)->count();
                 if($recipes>0){
                     /*insert record to boxes table */
-                    $data_box = Box::create(['delivery_date'=>$delivery_date]);
+                    $data_box = Box::create(['user_id'=>1,'delivery_date'=>$delivery_date]);
                     if($data_box){
                         foreach($request->recipes as $recipe){
                             /*insert record to box_recipes table */
