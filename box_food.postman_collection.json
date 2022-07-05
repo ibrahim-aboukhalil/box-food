@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "da01c91c-d666-4931-bb3a-8fee149abdea",
+		"name": "Hello Chef",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Ingredients",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/ingredient/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"ingredient",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Recipes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/api/recipe/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"recipe",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Boxes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost/api/box/all?order_date=01-06-2022",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"box",
+						"all"
+					],
+					"query": [
+						{
+							"key": "order_date",
+							"value": "01-06-2022"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Ingredient",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "ingredient_name",
+							"value": "carrots",
+							"type": "default"
+						},
+						{
+							"key": "measure",
+							"value": "kg",
+							"type": "default"
+						},
+						{
+							"key": "supplier",
+							"value": "Ibrahim",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/ingredient/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"ingredient",
+						"create"
+					],
+					"query": [
+						{
+							"key": "ingredient_name",
+							"value": "carrots",
+							"disabled": true
+						},
+						{
+							"key": "measure",
+							"value": "kg",
+							"disabled": true
+						},
+						{
+							"key": "supplier",
+							"value": "Ibrahim",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Recipe",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "recipe_name",
+							"value": "Sobra Recipe",
+							"type": "default"
+						},
+						{
+							"key": "recipe_description",
+							"value": "This is my best recipe",
+							"type": "default"
+						},
+						{
+							"key": "recipe_ingredients",
+							"value": "{\"amount\":3,\"ingredient\":\"carrots\", \"ingredient_id\":9},{\"amount\":1,\"ingredient\":\"onions\", \"ingredient_id\":8},",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/recipe/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"recipe",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Box",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "delivery_date",
+							"value": "08-07-2022",
+							"type": "default"
+						},
+						{
+							"key": "recipes[0]",
+							"value": "1",
+							"type": "default"
+						},
+						{
+							"key": "recipes[1]",
+							"value": "2",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/api/box/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"box",
+						"create"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
