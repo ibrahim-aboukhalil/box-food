@@ -237,7 +237,7 @@
             <div class="accordion-item">
                 <h2 class="accordion-header" id="headingSix">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        <span class="badge bg-success me-3">GET</span>List All Boxes
+                        <span class="badge bg-success me-3">GET</span>List All Ordered Ingredients
                     </button>
                 </h2>
                 <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
